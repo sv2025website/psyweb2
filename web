@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive 5-Page Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind to use the Inter font and enable responsive design -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header and Navigation Bar -->
+    <header class="bg-white shadow-lg sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo/Site Title -->
+                <div class="flex-shrink-0">
+                    <span class="text-xl font-extrabold text-indigo-600">MySite.pro</span>
+                </div>
+                <!-- Navigation Buttons (Desktop) -->
+                <nav class="hidden md:block">
+                    <div class="flex space-x-2">
+                        <button data-page="home" class="nav-button transition duration-300 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">Home</button>
+                        <button data-page="about" class="nav-button transition duration-300 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">About Me</button>
+                        <button data-page="portfolio" class="nav-button transition duration-300 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">Portfolio</button>
+                        <button data-page="ai-tools" class="nav-button transition duration-300 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">AI & Tools</button>
+                        <button data-page="contact" class="nav-button transition duration-300 px-3 py-2 rounded-lg text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 shadow-md">Contact</button>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Navigation Buttons (Mobile - Hidden initially, using flex to stack) -->
+            <div id="mobile-menu" class="md:hidden pt-2 pb-3 flex flex-wrap justify-center gap-2 border-t border-gray-100">
+                <button data-page="home" class="nav-button w-full sm:w-auto transition duration-300 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">Home</button>
+                <button data-page="about" class="nav-button w-full sm:w-auto transition duration-300 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">About Me</button>
+                <button data-page="portfolio" class="nav-button w-full sm:w-auto transition duration-300 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">Portfolio</button>
+                <button data-page="ai-tools" class="nav-button w-full sm:w-auto transition duration-300 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">AI & Tools</button>
+                <button data-page="contact" class="nav-button w-full sm:w-auto transition duration-300 px-3 py-2 rounded-lg text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 shadow-md">Contact</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto p-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- 1. Home Page -->
+        <section id="page-home" class="page-content bg-white p-6 rounded-xl shadow-lg transition-opacity duration-500">
+            <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Welcome to My Digital Hub!</h2>
+            <p class="text-xl text-indigo-600 mb-6">Innovative solutions, creative designs, and reliable development.</p>
+
+            <div class="space-y-4">
+                <p class="text-gray-600">I specialize in full-stack development with a passion for user-centric design. This site serves as a central point to showcase my work, share my technical interests, and connect with potential collaborators or employers.</p>
+                <p class="text-gray-600">Use the navigation bar above to explore my background, view past projects, check out my favorite AI tools, or get in touch!</p>
+            </div>
+
+            <div class="mt-8">
+                <button data-page="portfolio" class="nav-button bg-green-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-600 transition duration-300 shadow-md">View Portfolio Projects &rarr;</button>
+            </div>
+        </section>
+
+        <!-- 2. About Me Page -->
+        <section id="page-about" class="page-content bg-white p-6 rounded-xl shadow-lg hidden transition-opacity duration-500">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">About Me: The Journey</h2>
+            <div class="prose max-w-none text-gray-700">
+                <p>I started my career as a backend developer focusing on scalable databases and robust API design, primarily using Python and Node.js. Over time, I discovered a love for the frontend, which led me to become proficient in modern frameworks like React and Angular.</p>
+                <h3 class="text-2xl font-semibold mt-6 mb-2 text-indigo-600">Core Expertise</h3>
+                <ul class="list-disc list-inside space-y-2 pl-4">
+                    <li>Cloud Infrastructure (AWS/GCP)</li>
+                    <li>Real-time Databases (Firestore, MongoDB)</li>
+                    <li>Frontend UI/UX Implementation</li>
+                    <li>Generative AI Integration</li>
+                </ul>
+                <p class="mt-4">My goal is always to bridge the gap between complex technical requirements and intuitive user experiences.</p>
+            </div>
+        </section>
+
+        <!-- 3. Portfolio Page -->
+        <section id="page-portfolio" class="page-content bg-white p-6 rounded-xl shadow-lg hidden transition-opacity duration-500">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Featured Work</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Project 1 -->
+                <div class="bg-gray-50 p-4 rounded-lg shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-semibold text-indigo-700 mb-2">E-commerce Platform Redesign</h3>
+                    <p class="text-gray-600 mb-3 text-sm">A full redesign focused on mobile-first performance, resulting in a 25% increase in conversion rates.</p>
+                    <span class="inline-block bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">React</span>
+                    <span class="inline-block bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Node.js</span>
+                </div>
+                <!-- Project 2 -->
+                <div class="bg-gray-50 p-4 rounded-lg shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-semibold text-indigo-700 mb-2">Real-time Chat Application</h3>
+                    <p class="text-gray-600 mb-3 text-sm">Built a scalable, real-time messaging service using WebSockets and Firestore for state management.</p>
+                    <span class="inline-block bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Angular</span>
+                    <span class="inline-block bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Firestore</span>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center">
+                <p class="text-gray-500 italic">More projects available upon request.</p>
+            </div>
+        </section>
+
+        <!-- 4. AI & Tools Page -->
+        <section id="page-ai-tools" class="page-content bg-white p-6 rounded-xl shadow-lg hidden transition-opacity duration-500">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">AI Integration & Development Tools</h2>
+
+            <p class="text-gray-700 mb-4">I actively explore and utilize AI to streamline workflows and create smarter applications. Here are some of the key technologies and tools I rely on:</p>
+
+            <div class="space-y-4">
+                <div class="flex items-start p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
+                    <div class="ml-3">
+                        <h4 class="text-lg font-semibold text-gray-800">Generative Models (Gemini, Claude)</h4>
+                        <p class="text-sm text-gray-600">Integration into customer support bots and automated content generation pipelines.</p>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                    <div class="ml-3">
+                        <h4 class="text-lg font-semibold text-gray-800">Version Control & CI/CD</h4>
+                        <p class="text-sm text-gray-600">Git, GitHub Actions, and Jenkins for automated testing and deployment.</p>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 bg-red-50 rounded-lg border-l-4 border-red-500">
+                    <div class="ml-3">
+                        <h4 class="text-lg font-semibold text-gray-800">Design Tooling</h4>
+                        <p class="text-sm text-gray-600">Figma for prototyping, and Tailwind CSS for rapid, utility-first styling.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Contact Page -->
+        <section id="page-contact" class="page-content bg-white p-6 rounded-xl shadow-lg hidden transition-opacity duration-500">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Get in Touch</h2>
+
+            <form class="space-y-4 max-w-md">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                    <input type="text" id="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 border">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                    <input type="email" id="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 border">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                    <textarea id="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 border"></textarea>
+                </div>
+                <button type="submit" class="w-full py-2 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300">
+                    Send Message
+                </button>
+            </form>
+
+            <p class="mt-6 text-center text-gray-500">Alternatively, connect with me on LinkedIn!</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-auto">
+        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-500">
+            &copy; 2025 MySite.pro. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- JavaScript for Page Navigation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navButtons = document.querySelectorAll('.nav-button');
+            const pageContents = document.querySelectorAll('.page-content');
+            const activeClass = 'bg-indigo-600 text-white';
+            const inactiveClass = 'text-gray-700 hover:bg-indigo-100 hover:text-indigo-700';
+
+            /**
+             * Handles showing the selected page and updating the active navigation button state.
+             * @param {string} pageId - The ID of the page to display (e.g., 'home', 'about').
+             */
+            function showPage(pageId) {
+                // Hide all pages
+                pageContents.forEach(page => {
+                    page.classList.add('hidden');
+                    page.classList.remove('opacity-100');
+                    page.classList.add('opacity-0');
+                });
+
+                // Show the selected page with a fade-in effect
+                const targetPage = document.getElementById(`page-${pageId}`);
+                if (targetPage) {
+                    targetPage.classList.remove('hidden');
+                    // Force reflow to ensure transition works
+                    void targetPage.offsetWidth;
+                    targetPage.classList.remove('opacity-0');
+                    targetPage.classList.add('opacity-100');
+                }
+
+                // Update button states
+                navButtons.forEach(button => {
+                    button.classList.remove(activeClass);
+                    button.classList.add(inactiveClass);
+                    if (button.dataset.page === pageId) {
+                        // Apply active styling to the button
+                        button.classList.add(activeClass);
+                        button.classList.remove(inactiveClass);
+                        // A special check for the "Contact" button on desktop which has different base styling
+                        if (pageId === 'contact' && window.innerWidth >= 768) { // md breakpoint
+                             button.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
+                             button.classList.add('bg-indigo-700'); // make it slightly darker when active for contrast
+                        } else if (pageId === 'contact' && window.innerWidth < 768) {
+                             button.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
+                             button.classList.add('bg-indigo-700');
+                        } else {
+                            // Default active styling for all other buttons
+                             button.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
+                        }
+                    }
+                });
+            }
+
+            // Add event listeners to all navigation buttons
+            navButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const pageId = event.currentTarget.dataset.page;
+                    showPage(pageId);
+                });
+            });
+
+            // Initialize: Show the home page and set the initial active button
+            showPage('home');
+        });
+    </script>
+</body>
+</html>
